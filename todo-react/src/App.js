@@ -21,10 +21,17 @@ nextId:3
 
   }
   addTodo(todoText){
-    console.log("TODO added:", todoText);
+    let todos=this.state.todos.slice();
+    todos.push({id:this.state.nextId, text: todoText});
+    this.setState({
+      todos:todos,
+      nextId:++this.state.nextId
+    });
   }
   removeTodo(id){
-    console.log("removing: ",id);
+ this.setState({
+   todos:this.state.todos.filter((todo,index)=>todo.id!==id)
+ });
   }
 
   render() {
@@ -36,7 +43,7 @@ nextId:3
       <ul>
         {
           this.state.todos.map((todo)=>{
-            return <TodoItem todo={todo} key={todo.id} id={todo.id} removeTodo={todo.removeTodo}/>
+            return <TodoItem todo={todo} key={todo.id} id={todo.id} removeTodo={this.removeTodo}/>
           })
           
         }
