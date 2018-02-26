@@ -10,8 +10,8 @@ class App extends Component {
 
     this.state={
 todos :[
-  {id:0, text:"meet me in the evening" },
-  {id:1, text:"get the work done by tomorrow"},
+  {id:0, text:"Wash the clothes" },
+  {id:1, text:"bring grocery from the market "},
   {id:2,text:"call mom"}
 ],
 nextId:3
